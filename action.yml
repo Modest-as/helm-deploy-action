@@ -1,0 +1,25 @@
+name: Helm Deploy Action
+description: Deploys a helm chart
+inputs:
+  release:
+    description: Helm release name. Will be combined with track if set. (required)
+  namespace:
+    description: Kubernetes namespace name. (required)
+  chart:
+    description: Helm chart path. If set to "app" this will use the built in helm
+      chart found in this repository. (required)
+  values:
+    description: Helm chart values, expected to be a YAML or JSON string.
+  value-file:
+    description: Additional value file to apply to the helm chart.
+  version:
+    description: Version of the app, usually commit sha works here.
+  repo:
+    description: Custom helm repository.
+  username:
+    description: Custom helm repository username.
+  password:
+    description: Custom helm repository password.
+runs:
+  using: docker
+  image: Dockerfile
