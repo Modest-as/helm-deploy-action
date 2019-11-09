@@ -9,6 +9,8 @@ RUN apk add --no-cache ca-certificates jq curl bash && \
     chmod +x /usr/bin/helm && \
     rm -rf linux-amd64
 
-COPY entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /usr/src/entrypoint.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+RUN chmod +x /usr/src/entrypoint.sh
+
+ENTRYPOINT ["/usr/src/entrypoint.sh"]
