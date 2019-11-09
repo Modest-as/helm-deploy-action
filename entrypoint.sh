@@ -2,7 +2,7 @@
 
 touch kubeconfig.yml && echo $KUBECONFIG_FILE > kubeconfig.yml
 
-chmod kubeconfig.yml +rwx
+chmod +rwx kubeconfig.yml
 
 helm init --client-only
 
