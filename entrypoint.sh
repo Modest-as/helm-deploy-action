@@ -2,9 +2,7 @@
 
 helm init --client-only
 
-touch kubeconfig.yml && echo $KUBECONFIG_FILE > kubeconfig.yml
-
-chmod +rwx kubeconfig.yml
+echo $KUBECONFIG_FILE | base64 -d > kubeconfig.yml
 
 helm repo update
 
