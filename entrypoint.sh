@@ -8,4 +8,4 @@ helm init --client-only
 
 helm repo update
 
-helm upgrade "$3" --name="$1" --namespace="$2" --set="$4" --values="$5" --repo="$6" --username="$7" --password="$8"
+helm upgrade "$1" "$2"  --namespace="$3" --set="$4" --values="$5" --repo="$6" --username="$7" --password="$8"
