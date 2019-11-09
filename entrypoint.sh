@@ -1,10 +1,12 @@
 #!/bin/sh -l
 
-touch kubeconfig.yml && echo $KUBECONFIG_FILE | base64 -d > kubeconfig.yml
+touch kubeconfig.yml && echo $KUBECONFIG_FILE > kubeconfig.yml
 
 helm init --client-only
 
 helm repo update
+
+echo $(cat $(pwd)/kubeconfig.yml)
 
 export KUBECONFIG=$(pwd)/kubeconfig.yml
 
