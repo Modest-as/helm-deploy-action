@@ -1,10 +1,10 @@
 #!/bin/sh -l
 
+helm init --client-only
+
 touch kubeconfig.yml && echo $KUBECONFIG_FILE > kubeconfig.yml
 
 chmod +rwx kubeconfig.yml
-
-helm init --client-only
 
 helm repo update
 
