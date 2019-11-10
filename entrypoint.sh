@@ -2,7 +2,7 @@
 
 helm init --client-only
 
-echo $KUBECONFIG_FILE | base64 -d > ./kubeconfig
+echo "$KUBECONFIG_FILE" > ./kubeconfig
 
 helm repo update
 
