@@ -2,9 +2,11 @@
 
 helm init --client-only
 
-echo $KUBECONFIG_FILE | base64 -d > kubeconfig.yml
+echo $KUBECONFIG_FILE > kubeconfig.yml
 
 helm repo update
+
+helm ls
 
 export KUBECONFIG=$(pwd)/kubeconfig.yml
 
