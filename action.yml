@@ -9,7 +9,7 @@ inputs:
     description: Kubernetes namespace name.
   values:
     description: Helm chart values, expected to be a YAML or JSON string.
-  value-file:
+  valuefile:
     description: Additional value file to apply to the helm chart.
   repo:
     description: Custom helm repository.
