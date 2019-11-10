@@ -17,6 +17,9 @@ inputs:
     description: Custom helm repository username.
   password:
     description: Custom helm repository password.
+  args:
+    description: Additional arguments.
+    default: ""
 runs:
   using: docker
   image: Dockerfile
