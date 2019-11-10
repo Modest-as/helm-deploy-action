@@ -10,4 +10,6 @@ export KUBECONFIG=$(pwd)/kubeconfig
 
 cd $GITHUB_WORKSPACE
 
+ls
+
 helm upgrade "$1" "$2"  --namespace="$3" --set="$4" --values="$5" --repo="$6" --username="$7" --password="$8" --wait --atomic --install
