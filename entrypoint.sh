@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-helm init --client-only
+helm init --client-only --stable-repo-url https://charts.helm.sh/stable
 
 echo "$KUBECONFIG_FILE" > ./kubeconfig
 
