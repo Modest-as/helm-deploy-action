@@ -15,5 +15,11 @@ export KUBECONFIG=$(pwd)/kubeconfig
 echo "Switch to Github Workspace"
 cd $GITHUB_WORKSPACE
 
-echo "Upgrading helm release"
-helm upgrade "$INPUT_RELEASE" "$INPUT_CHART"  --namespace="$INPUT_NAMESPACE" --set="$INPUT_VALUES" --values="$INPUT_VALUEFILE" --repo="$INPUT_REPO" --username="$INPUT_USERNAME" --password="$INPUT_PASSWORD" --wait --atomic --install $INPUT_ARGS
+if [ $INPUT_TASK = "remove"  ] 
+then
+    echo "Removing helm release"
+    helm ls --all --short | grep "$INPUT_RELEASE" | xargs helm delete --purge
+else
+    echo "Upgrading helm release"
+    helm upgrade "$INPUT_RELEASE" "$INPUT_CHART"  --namespace="$INPUT_NAMESPACE" --set="$INPUT_VALUES" --values="$INPUT_VALUEFILE" --repo="$INPUT_REPO" --username="$INPUT_USERNAME" --password="$INPUT_PASSWORD" --wait --atomic --timeout 600 --install $INPUT_ARGS
+fi

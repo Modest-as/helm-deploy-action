@@ -7,6 +7,8 @@ inputs:
     description: Helm chart name.
   namespace:
     description: Kubernetes namespace name.
+  task:
+    description: Task to be performed using helm. Task can be 'remove' and 'upgrade' by default will be 'upgrade'.
   values:
     description: Helm chart values, expected to be a YAML or JSON string.
   valuefile:
