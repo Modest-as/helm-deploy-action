@@ -17,7 +17,10 @@ cd $GITHUB_WORKSPACE
 
 if [ $INPUT_TASK = "remove"  ] 
 then
-    echo "Removing helm release"
+    echo "Releases to remove"
+    elm ls --all --short | grep "$INPUT_RELEASE" | xargs echo
+    
+    echo "Removing helm releases"
     helm ls --all --short | grep "$INPUT_RELEASE" | xargs helm delete --purge
 else
     echo "Upgrading helm release"
